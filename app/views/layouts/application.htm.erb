@@ -27,18 +27,45 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand text-white" <%= link_to "Vannes Events", welcome_index_path%></a>
+    <a class="navbar-brand text-white" <%= link_to "The Gossip Project", welcome_index_path%></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link text-light" <%= link_to "Team", welcome_index_path%></a>
+        <a class="nav-link text-light" <%= link_to "Team", team_index_path%></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" <%= link_to "Contact", welcome_index_path%></a>
+        <a class="nav-link text-light" <%= link_to "Contact", contact_index_path%></a>
       </li>
-
+      <%if logged_in? %>
+      <li class="nav-item">
+        <a class="nav-link text-light" <%= link_to "Participe, et créé un event", new_event_path%></a>
+      </li>
+      <%end%>
     </ul>
   </div>
 
+
+  <%if logged_in? %>
+  <div class="dropdown mr-5">
+    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%=current_user.first_name%>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item badge badge-pill badge-info" <%= link_to "Profil", author_path(current_user.id)%></a>
+      <a class="dropdown-item badge badge-pill badge-danger" <%= link_to "Déconnection", session_path(session.id), method: :delete %>
+      </div>
+    </div>
+
+    <%else%>
+    <div class="dropdown mr-5">
+      <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Inscription / Connection
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item badge badge-pill badge-primary" <%= link_to "S'inscrire", new_author_path%></a>
+        <a class="dropdown-item badge badge-pill badge-success" <%= link_to "Se connecter", new_author_path%></a>
+      </div>
+    </div>
+    <%end%>
 
 </nav>
   </header>
