@@ -22,7 +22,7 @@ event = Event.create!(
 start_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default),
 duration: Faker::Number.between(from: 5, to: 100)*5,
 title: Faker::Superhero.name,
-description: Faker::Quotes::Shakespeare.hamlet_quote,
+description: Faker::Lorem.paragraph_by_chars(number: 300, supplemental: false),
 price: Faker::Number.between(from: 1, to: 1000),
 location: Faker::Address.street_address,
 admin_id: User.all.sample.id,
