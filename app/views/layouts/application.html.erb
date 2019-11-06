@@ -30,10 +30,10 @@
     <a class="navbar-brand text-white" <%= link_to "Vannes Events", welcome_index_path%></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link text-light" <%= link_to "Team", welcome_index_path%></a>
+        <a class="nav-link text-light" <%= link_to "Team", team_index_path%></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" <%= link_to "Contact", welcome_index_path%></a>
+        <a class="nav-link text-light" <%= link_to "Contact", contact_index_path%></a>
       </li>
 
     </ul>
@@ -44,8 +44,10 @@
         Inscription / Connection
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item badge badge-pill badge-primary" <%= link_to "S'inscrire", welcome_index_path%></a>
-        <a class="dropdown-item badge badge-pill badge-success" <%= link_to "Se connecter", welcome_index_path%></a>
+        <a class="dropdown-item badge badge-pill badge-primary" <%= link_to "sign up", welcome_index_path%></a>
+        <a class="dropdown-item badge badge-pill badge-success" <%= link_to "loggin", welcome_index_path%></a>
+        <a class="dropdown-item badge badge-pill badge-success" <%= link_to "my profil", welcome_index_path%></a>
+        <a class="dropdown-item badge badge-pill badge-success" <%= link_to "loggout", welcome_index_path%></a>
       </div>
     </div>
 
